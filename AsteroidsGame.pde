@@ -1,11 +1,16 @@
 Spaceship bob = new Spaceship();
 Star[] sue = new Star[500];
+Asteroid[] joe = new Asteroid[10];
 public void setup() 
 {
   size(500, 500);
   for (int i=0; i<sue.length; i++)
   {
     sue[i]= new Star();
+  }
+  for (int i =0; i<joe.length; i++)
+  {
+    joe[i] = new Asteroid();
   }
 }
 public void draw() 
@@ -14,6 +19,11 @@ public void draw()
   for (int i=0; i<sue.length; i++)
   {
     sue[i].show();
+  }
+  for(int i =0; i<joe.length; i++)
+  {
+    joe[i].show();
+    joe[i].move();
   }
   bob.show();
   bob.move();
