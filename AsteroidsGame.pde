@@ -1,6 +1,6 @@
 Spaceship bob = new Spaceship();
 Star[] sue = new Star[500];
-Asteroid[] joe = new Asteroid[10];
+ArrayList<Asteroid> joe = new ArrayList<Asteroid>();
 public void setup() 
 {
   size(500, 500);
@@ -8,9 +8,9 @@ public void setup()
   {
     sue[i]= new Star();
   }
-  for (int i =0; i<joe.length; i++)
+  for (int i =0; i<10; i++)
   {
-    joe[i] = new Asteroid();
+    joe.add(new Asteroid());
   }
 }
 public void draw() 
@@ -20,10 +20,13 @@ public void draw()
   {
     sue[i].show();
   }
-  for(int i =0; i<joe.length; i++)
+  for(int i =0; i<joe.size(); i++)
   {
-    joe[i].show();
-    joe[i].move();
+    joe.get(i).show();
+    joe.get(i).move();
+    float remove = dist(bob.getX(), bob.getY(), joe.get(i).getX(), joe.get(i).getY());
+    if(remove<30)
+    joe.remove(i);
   }
   bob.show();
   bob.move();
